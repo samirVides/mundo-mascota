@@ -59,31 +59,31 @@ function App() {
               {(currentUser.role === UserRole.GENERAL_MANAGER || 
                 currentUser.role === UserRole.CLINIC_ADMIN || 
                 currentUser.role === UserRole.HOTEL_EMPLOYEE) && (
-                <Route path="/clinic" element={<ServiceManagement category="CLINIC" userRole={currentUser.role} />} />
+                <Route path="/clinic\" element={<ServiceManagement category="CLINIC\" userRole={currentUser.role} />} />
               )}
               
               {(currentUser.role === UserRole.GENERAL_MANAGER || 
                 currentUser.role === UserRole.HOTEL_EMPLOYEE) && (
-                <Route path="/hotel" element={<ServiceManagement category="HOTEL" userRole={currentUser.role} />} />
+                <Route path="/hotel" element={<ServiceManagement category="HOTEL\" userRole={currentUser.role} />} />
               )}
               
               {(currentUser.role === UserRole.GENERAL_MANAGER || 
                 currentUser.role === UserRole.SPA_ASSISTANT || 
                 currentUser.role === UserRole.CLINIC_ADMIN) && (
-                <Route path="/spa" element={<ServiceManagement category="SPA" userRole={currentUser.role} />} />
+                <Route path="/spa" element={<ServiceManagement category="SPA\" userRole={currentUser.role} />} />
               )}
               
               <Route path="/pqrs" element={<PQRManagement userRole={currentUser.role} />} />
               
               {currentUser.role === UserRole.PUBLIC && (
-                <Route path="/pricing" element={<PricingPage />} />
+                <Route path="/pricing\" element={<PricingPage />} />
               )}
               
               {currentUser.role !== UserRole.PUBLIC && (
                 <Route path="/reports" element={<ReportPage userRole={currentUser.role} />} />
               )}
               
-              <Route path="*" element={<Navigate to="/dashboard" replace />} />
+              <Route path="*" element={<Navigate to="/dashboard\" replace />} />
             </Routes>
           </main>
         </div>
