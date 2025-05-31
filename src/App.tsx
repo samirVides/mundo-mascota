@@ -13,6 +13,7 @@ import Dashboard from './pages/Dashboard';
 import ServiceManagement from './pages/ServiceManagement';
 import PQRManagement from './pages/PQRManagement';
 import ReportPage from './pages/ReportPage';
+import PricingPage from './pages/PricingPage';
 
 // Workaround to add the missing imports
 import 'recharts';
@@ -58,27 +59,31 @@ function App() {
               {(currentUser.role === UserRole.GENERAL_MANAGER || 
                 currentUser.role === UserRole.CLINIC_ADMIN || 
                 currentUser.role === UserRole.HOTEL_EMPLOYEE) && (
-                <Route path="/clinic\" element={<ServiceManagement category="CLINIC\" userRole={currentUser.role} />} />
+                <Route path="/clinic" element={<ServiceManagement category="CLINIC" userRole={currentUser.role} />} />
               )}
               
               {(currentUser.role === UserRole.GENERAL_MANAGER || 
                 currentUser.role === UserRole.HOTEL_EMPLOYEE) && (
-                <Route path="/hotel" element={<ServiceManagement category="HOTEL\" userRole={currentUser.role} />} />
+                <Route path="/hotel" element={<ServiceManagement category="HOTEL" userRole={currentUser.role} />} />
               )}
               
               {(currentUser.role === UserRole.GENERAL_MANAGER || 
                 currentUser.role === UserRole.SPA_ASSISTANT || 
                 currentUser.role === UserRole.CLINIC_ADMIN) && (
-                <Route path="/spa" element={<ServiceManagement category="SPA\" userRole={currentUser.role} />} />
+                <Route path="/spa" element={<ServiceManagement category="SPA" userRole={currentUser.role} />} />
               )}
               
               <Route path="/pqrs" element={<PQRManagement userRole={currentUser.role} />} />
               
-              {currentUser.role !== UserRole.PUBLIC && (
-                <Route path="/reports\" element={<ReportPage userRole={currentUser.role} />} />
+              {currentUser.role === UserRole.PUBLIC && (
+                <Route path="/pricing" element={<PricingPage />} />
               )}
               
-              <Route path="*" element={<Navigate to="/dashboard\" replace />} />
+              {currentUser.role !== UserRole.PUBLIC && (
+                <Route path="/reports" element={<ReportPage userRole={currentUser.role} />} />
+              )}
+              
+              <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Routes>
           </main>
         </div>

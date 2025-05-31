@@ -68,7 +68,7 @@ const Sidebar: React.FC<SidebarProps> = ({ userRole, onLogout }) => {
       name: 'Precios', 
       path: '/pricing', 
       icon: <DollarSign size={20} />, 
-      allowedRoles: [UserRole.GENERAL_MANAGER, UserRole.SPA_ASSISTANT, UserRole.PUBLIC] 
+      allowedRoles: [UserRole.PUBLIC] 
     },
     { 
       name: 'Reportes', 
